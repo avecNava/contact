@@ -8,8 +8,8 @@ class Message
     {             
       $host = 'localhost';      //where is the mysql database? 
       $username = 'root';       //username to connect to mysql db
-      $password = 'nava1021';           //password for mysql
-      $database = 'test';    //please make a mysql database named college
+      $password = null;           //password for mysql
+      $database = 'contact';    //please make a mysql database named college
       $dsn="mysql:host=$host;dbname=$database";
       $this->pdo = new PDO($dsn, $username, $password);
 
