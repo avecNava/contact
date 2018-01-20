@@ -8,7 +8,9 @@ class Message
     {             
       $host = 'localhost';      //where is the mysql database? 
       $username = 'root';       //username to connect to mysql db
-      $password = null;           //password for mysql
+
+      $password = '';           //password for mysql
+
       $database = 'contact';    //please make a mysql database named college
       $dsn="mysql:host=$host;dbname=$database";
       $this->pdo = new PDO($dsn, $username, $password);
@@ -20,10 +22,16 @@ class Message
     }
     //1. create function to insert data
     public function create($message_id, $fullname, $email, $telephone,$message)
-    {      
-      
-     
-       
+    {
+        $sql = "INSERT INTO messages (message_id,fullname,email,telephone,message) VALUES (:message_id,:fullname,:email,:telephone,:message)";
+        $query = $this->pdo->prepare($sql);
+        $query->bindParam(':message_id', $message_id);
+        $query->bindParam(':fullname', $fullname);
+        $query->bindParam(':email', $email);
+        $query->bindParam(':telephone', $telephone);
+        $query->bindParam(':message', $message);
+        $ret = $query->execute();
+        echo '<br/>' . count($ret) . ' records created. Full name =' . $fullname;             
     }
 
    //2. update function to update data
