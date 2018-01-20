@@ -1,10 +1,5 @@
 
-/**
- * Created by PhpStorm.
- * User: Sunil PC
- * Date: 1/20/2018
- * Time: 10:17 AM
- */
+
 <?php
 
 include('pdo_library.php');
@@ -29,7 +24,7 @@ include('pdo_library.php');
         if($success)
             echo "<h4>Record with id $message_id is saved/updated<br/></h4>";
     }
-a minute ago - Reply
+    ?>
 
 
 
@@ -39,4 +34,4 @@ a minute ago - Reply
 
 
 
- ?>
+
